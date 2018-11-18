@@ -15,7 +15,7 @@ MongoClient.connect(url, function (err, client) {
   db = client.db(dbName);
   // List all the available databases
   console.log('디비연결됨');
-  console.dir(adminDb);
+  
 });
 /* GET home page. */
 router.get('/', function (req, res, next) {
