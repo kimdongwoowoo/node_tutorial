@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+
+  <h3>TODO LIST</h3>
+  <form action="/task-register" method="post" autocomplete="on">
+    <div class="form-group">
+      <label>날짜</label>
+      <input type="date" name="date" class="form-control">
+    </div>
+    <div class="form-group">
+      <label>할 일</label>
+      <textarea name="task" class="form-control" rows="3"></textarea>
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+  <form action="/task-done" method="post">
+    <div>
+      <label>
+        <% if(todo!=(null&&"")){
+               todo.forEach(function(todo){ %>
+        <input type="checkbox" name="checked" value="<%=todo.id%>">
+        <%= todo.task %> / until
+        <%= todo.date %> / finish
+        <%=todo.done%><br>
+        <% });
+            } else { %>
+        <p>등록된 일정이 없습니다</p>
+        <%}%>
+      </label>
+    </div>
+    <button type="submit">done</button>
+  </form>
+
+</body>
+
+</html>
